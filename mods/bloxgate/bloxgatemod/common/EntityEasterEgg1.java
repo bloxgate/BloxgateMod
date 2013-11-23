@@ -37,12 +37,12 @@ public class EntityEasterEgg1 extends EntityMob{
 		this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityZombie.class, 0, true));
 		// TODO Auto-generated constructor stub
 	}
-	public void func_110147_ax(){
-		 super.func_110147_ax();
+	public void applyEntityAttributes(){
+		 super.applyEntityAttributes();
 		 //field_111267_* a-Health , B-Follow Range, c - Knockback resistance, d-Movement speed, e - Attack damage
-		 this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(72.0D);
-		 this.func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(5.0D);
-		 this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.699D);
+		 this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(72.0D);
+		 this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setAttribute(5.0D);
+		 this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.699D);
 	}
 public boolean isAIEnabled(){
 	return true;

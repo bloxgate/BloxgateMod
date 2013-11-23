@@ -11,20 +11,20 @@ import net.minecraft.util.ResourceLocation;
 @SideOnly(Side.CLIENT)
 public class RenderEasterEgg1 extends RenderLiving
 {
-    private static final ResourceLocation field_110833_a = new ResourceLocation("bloxgate", "textures/entities/EasterEgg1.png");
+    private static final ResourceLocation EE1Textures = new ResourceLocation("bloxgate", "textures/entities/EasterEgg1.png");
 
     public RenderEasterEgg1(ModelBase par1ModelBase, float par2)
     {
         super(par1ModelBase, par2);
     }
 
-    protected ResourceLocation func_110832_a(EntityEasterEgg1 par1EntityEasterEgg1)
+    protected ResourceLocation getEE1Textures(EntityEasterEgg1 par1EntityEasterEgg1)
     {
-        return field_110833_a;
+        return EE1Textures;
     }
 
-    protected ResourceLocation func_110775_a(Entity par1Entity)
-    {
-        return this.func_110832_a((EntityEasterEgg1)par1Entity);
-    }
+	@Override
+	protected ResourceLocation getEntityTexture(Entity entity) {
+		return this.getEE1Textures((EntityEasterEgg1)entity);
+	}
 }

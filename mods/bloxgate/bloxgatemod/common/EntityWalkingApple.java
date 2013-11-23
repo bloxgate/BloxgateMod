@@ -40,10 +40,9 @@ public class EntityWalkingApple extends EntityAnimal{
 	protected int getDropItemId(){
 		return ItemFood.appleRed.itemID;
 	}
-	public void func_110147_ax(){
-		 super.func_110147_ax();
-		 //field_111267_* a-Health (in Hearts) , B-Follow Range, c - Knockback resistance, d-Movement speed, e - Attack damage
-		 this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(5.0D);
+	public void applyEntityAttributes(){
+		 super.applyEntityAttributes();
+		 this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(5.0D);
 	}  /**
      * This function is used when two same-species animals in 'love mode' breed to generate the new baby animal.
      */

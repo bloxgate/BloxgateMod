@@ -15,16 +15,18 @@ public class RenderWalkingApple extends RenderLiving
 		// TODO Auto-generated constructor stub
 	}
 
-	private static final ResourceLocation field_110833_a = new ResourceLocation("bloxgate", "textures/entities/ApplePig.png");
+	private static final ResourceLocation WalkingAppleTextures = new ResourceLocation("bloxgate", "textures/entities/ApplePig.png");
 
     
-    protected ResourceLocation func_110832_a(EntityWalkingApple par1EntityWalkingAppple)
+    protected ResourceLocation getWalkingAppleTextures(EntityWalkingApple par1EntityWalkingAppple)
     {
-        return field_110833_a;
+        return WalkingAppleTextures;
     }
 
-    protected ResourceLocation func_110775_a(Entity par1Entity)
-    {
-        return this.func_110832_a((EntityWalkingApple)par1Entity);
-    }
+
+	@Override
+	protected ResourceLocation getEntityTexture(Entity entity) {
+		// TODO Auto-generated method stub
+		return this.getWalkingAppleTextures((EntityWalkingApple)entity);
+	}
 }
