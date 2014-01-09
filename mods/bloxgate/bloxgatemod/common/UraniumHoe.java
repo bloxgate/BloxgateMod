@@ -24,5 +24,4 @@ public class UraniumHoe extends ItemHoe{
 	public void registerIcons(IconRegister iconregister){
 		itemIcon = iconregister.registerIcon("bloxgate:UraniumHoe");
 	}
-
 }

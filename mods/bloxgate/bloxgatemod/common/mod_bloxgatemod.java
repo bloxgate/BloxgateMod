@@ -5,6 +5,8 @@
 package mods.bloxgate.bloxgatemod.common;
 
 import mods.bloxgate.bloxgatemod.client.BloxgatemodClientProxy;
+import mods.bloxgate.bloxgatemod.client.GuiHandler;
+import mods.bloxgate.bloxgatemod.common.tileentity.TileEntityBlockDeployer;
 import mods.bloxgate.bloxgatemod.server.BloxgatemodServerProxy;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
@@ -37,7 +39,7 @@ import net.minecraft.world.biome.BiomeGenBase;
  *
  * @author Gregory
  */
-@Mod(modid = "bloxmod", name = "Bloxgate's Mod", version = "0.0.1 (Alpha Test)")
+@Mod(modid = "bloxmod", name = "Bloxgate's Mod", version = "0.0.2 (Alpha Test)")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class mod_bloxgatemod {
 	
@@ -51,13 +53,14 @@ public class mod_bloxgatemod {
     public static Item uranium;
     public static Block uraniumBlock;
     public static Item uraniumSword;
-    public static Item uraniumChestplate;
     public static Item uraniumHelmet;
+    public static Item uraniumChestplate;
     public static Item uraniumBoots;
     public static Item uraniumLegs;
     public static Item uraniumPickaxe;
     public static Block NetherUraniumOre;
     public static Item uraniumHoe;
+    public static Block BlockDeployer;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
@@ -117,6 +120,12 @@ public class mod_bloxgatemod {
        LanguageRegistry.addName(uraniumHoe, "Uranium Hoe");
        GameRegistry.addRecipe(new ItemStack(uraniumHoe), "xx ", " y ", " y ", 'x', uranium, 'y', Item.stick);
        
+       BlockDeployer = (new BlockDeployer(1554)).setUnlocalizedName("blockDeployer");
+       GameRegistry.registerBlock(BlockDeployer, "Block Deployer");;
+       LanguageRegistry.addName(BlockDeployer, "Block Deployer");
+       GameRegistry.addRecipe(new ItemStack(BlockDeployer), "xxx", "xyx", "xxx", 'x', Item.ingotIron, 'y', Item.redstone);
+       GameRegistry.registerTileEntity(TileEntityBlockDeployer.class, "BlockDeployerBlox");
+       
        Logger.Logger("Loaded Items and Blocks");
        
        //Armor Recipes 
@@ -138,6 +147,9 @@ public class mod_bloxgatemod {
        RenderingRegistry.registerEntityRenderingHandler(EntityEasterEgg1.class, new RenderEasterEgg1(new ModelEasterEgg1(), 0.5F));
        EntityRegistry.addSpawn(EntityEasterEgg1.class, 1, 1, 1, EnumCreatureType.creature, BiomeGenBase.desert, BiomeGenBase.desertHills);
        LanguageRegistry.instance().addStringLocalization("entity.EasterEgg1.name", "Bloxgate Mob");
+       
+       new GuiHandler();
+       
        Logger.Logger("Mobs loaded succesfuly");
         
     }
