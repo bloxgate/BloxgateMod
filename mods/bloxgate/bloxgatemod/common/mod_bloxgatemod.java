@@ -61,6 +61,7 @@ public class mod_bloxgatemod {
     public static Block NetherUraniumOre;
     public static Item uraniumHoe;
     public static Block BlockDeployer;
+    public static Item uraniumAxe;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
@@ -125,6 +126,10 @@ public class mod_bloxgatemod {
        LanguageRegistry.addName(BlockDeployer, "Block Deployer");
        GameRegistry.addRecipe(new ItemStack(BlockDeployer), "xxx", "xyx", "xxx", 'x', Item.ingotIron, 'y', Item.redstone);
        GameRegistry.registerTileEntity(TileEntityBlockDeployer.class, "BlockDeployerBlox");
+       
+       uraniumAxe = (new UraniumAxe(908, toolUranium)).setUnlocalizedName("uraniumAxe");
+       LanguageRegistry.addName(uraniumAxe, "Uranium Axe");
+       GameRegistry.addRecipe(new ItemStack(uraniumAxe), "xx ", "xy ", " y ", 'x', uranium, 'y', Item.stick);
        
        Logger.Logger("Loaded Items and Blocks");
        
