@@ -62,6 +62,7 @@ public class mod_bloxgatemod {
     public static Item uraniumHoe;
     public static Block BlockDeployer;
     public static Item uraniumAxe;
+    public static Item uraniumShovel;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
@@ -130,6 +131,10 @@ public class mod_bloxgatemod {
        uraniumAxe = (new UraniumAxe(908, toolUranium)).setUnlocalizedName("uraniumAxe");
        LanguageRegistry.addName(uraniumAxe, "Uranium Axe");
        GameRegistry.addRecipe(new ItemStack(uraniumAxe), "xx ", "xy ", " y ", 'x', uranium, 'y', Item.stick);
+       
+       uraniumShovel = (new UraniumShovel(909, toolUranium)).setUnlocalizedName("uraniumShovel");
+       LanguageRegistry.addName(uraniumShovel, "Uranium Shovel");
+       GameRegistry.addRecipe(new ItemStack(uraniumShovel), " x ", " y ", " y ", 'x', uranium, 'y', Item.stick);
        
        Logger.Logger("Loaded Items and Blocks");
        
