@@ -63,6 +63,7 @@ public class mod_bloxgatemod {
     public static Block BlockDeployer;
     public static Item uraniumAxe;
     public static Item uraniumShovel;
+    public static Block unobtanium;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
@@ -135,6 +136,12 @@ public class mod_bloxgatemod {
        uraniumShovel = (new UraniumShovel(909, toolUranium)).setUnlocalizedName("uraniumShovel");
        LanguageRegistry.addName(uraniumShovel, "Uranium Shovel");
        GameRegistry.addRecipe(new ItemStack(uraniumShovel), " x ", " y ", " y ", 'x', uranium, 'y', Item.stick);
+       
+       EnumToolMaterial toolUnobtanium = EnumHelper.addToolMaterial("UNOBTANIUM", 4, 20000, 20F, 40, 20);
+       unobtanium = (new BlockUnobtanium(1555)).setUnlocalizedName("unobtaniumBlock");
+       GameRegistry.registerBlock(unobtanium, "Unobtanium Block");
+       LanguageRegistry.addName(unobtanium, "Unobtanium Block");
+       MinecraftForge.setBlockHarvestLevel(unobtanium, "pickaxe", 3);
        
        Logger.Logger("Loaded Items and Blocks");
        
