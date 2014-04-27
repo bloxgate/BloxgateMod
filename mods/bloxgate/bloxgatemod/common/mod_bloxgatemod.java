@@ -64,6 +64,7 @@ public class mod_bloxgatemod {
     public static Item uraniumAxe;
     public static Item uraniumShovel;
     public static Block unobtanium;
+    public static Item compressedUnobtaniumSphere;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
@@ -142,6 +143,9 @@ public class mod_bloxgatemod {
        GameRegistry.registerBlock(unobtanium, "Unobtanium Block");
        LanguageRegistry.addName(unobtanium, "Unobtanium Block");
        MinecraftForge.setBlockHarvestLevel(unobtanium, "pickaxe", 3);
+       
+       compressedUnobtaniumSphere = (new CUnobtaniumSphere(910)).setUnlocalizedName("CUnobtaniumSphere");
+       LanguageRegistry.addName(compressedUnobtaniumSphere, "Compressed Unobtanium Sphere");
        
        Logger.Logger("Loaded Items and Blocks");
        
