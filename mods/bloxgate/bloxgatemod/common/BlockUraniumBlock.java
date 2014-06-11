@@ -15,9 +15,10 @@ import cpw.mods.fml.relauncher.SideOnly;
  *
  * @author Gregory
  */
-class BlockUraniumBlock extends Block{
-
-    public BlockUraniumBlock(int par1, int par2) {
+class BlockUraniumBlock extends Block
+{
+    public BlockUraniumBlock(int par1, int par2)
+    {
         super(par1, Material.iron);
         this.setCreativeTab(CreativeTabs.tabBlock);
         this.setHardness(90F);
@@ -26,8 +27,8 @@ class BlockUraniumBlock extends Block{
     }
     @SideOnly(Side.CLIENT)
     @Override
-    public void registerIcons(IconRegister iconRegister){
-		this.blockIcon = iconRegister.registerIcon("bloxgate:BlockUraniumBlock");
-	}
-    
+    public void registerIcons(IconRegister iconRegister)
+    {
+        this.blockIcon = iconRegister.registerIcon("bloxgate:BlockUraniumBlock");
+    }
 }

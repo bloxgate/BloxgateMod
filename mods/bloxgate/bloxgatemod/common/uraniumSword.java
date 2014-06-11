@@ -13,26 +13,26 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.client.renderer.texture.TextureManager;
 
-
 /**
  *
  * @author Gregory
  */
-class uraniumSword extends ItemSword{
-
-    public uraniumSword(int i, EnumToolMaterial toolUranium) {
-            super(i, toolUranium);
-        }
+class uraniumSword extends ItemSword
+{
+    public uraniumSword(int i, EnumToolMaterial toolUranium)
+    {
+        super(i, toolUranium);
+    }
     @Override
     @SideOnly(Side.CLIENT)
-    public EnumRarity getRarity(ItemStack par1ItemStack){
-    return EnumRarity.epic;  
-}
-   @Override
-   @SideOnly(Side.CLIENT)
+    public EnumRarity getRarity(ItemStack par1ItemStack)
+    {
+        return EnumRarity.epic;
+    }
+    @Override
+    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
-	{
-	         itemIcon = iconRegister.registerIcon("bloxgate:UraniumSword");
-	}
-	}
-    
+    {
+        itemIcon = iconRegister.registerIcon("bloxgate:UraniumSword");
+    }
+}

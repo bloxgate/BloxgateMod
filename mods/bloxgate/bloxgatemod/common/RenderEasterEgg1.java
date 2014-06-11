@@ -23,8 +23,9 @@ public class RenderEasterEgg1 extends RenderLiving
         return EE1Textures;
     }
 
-	@Override
-	protected ResourceLocation getEntityTexture(Entity entity) {
-		return this.getEE1Textures((EntityEasterEgg1)entity);
-	}
+    @Override
+    protected ResourceLocation getEntityTexture(Entity entity)
+    {
+        return this.getEE1Textures((EntityEasterEgg1)entity);
+    }
 }
