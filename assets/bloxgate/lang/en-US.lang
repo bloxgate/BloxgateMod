@@ -1,1 +1,4 @@
-tile.blockUraniumOre="Uranium Ore"
+tile.blockUraniumOre=Uranium Ore
+tile.blockUranium=Uranium Block
+
+item.Uranium=Uranium

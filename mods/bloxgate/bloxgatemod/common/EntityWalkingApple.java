@@ -12,6 +12,7 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -29,7 +30,7 @@ public class EntityWalkingApple extends EntityAnimal
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIPanic(this, 0.38F));
         this.tasks.addTask(2, new EntityAIMate(this, var2));
-        this.tasks.addTask(3, new EntityAITempt(this, 0.3F, mod_bloxgatemod.uranium.itemID, false));
+        this.tasks.addTask(3, new EntityAITempt(this, 0.3F, mod_bloxgatemod.uranium, false));
         this.tasks.addTask(4, new EntityAIFollowParent(this, 0.28F));
         this.tasks.addTask(5, new EntityAIWander(this, var2));
         this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
@@ -39,14 +40,14 @@ public class EntityWalkingApple extends EntityAnimal
     {
         return true;
     }
-    protected int getDropItemId()
+    protected Item getDropItemId()
     {
-        return Item.getIdFromItem(appleRed);
+        return Items.apple;
     }
     public void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(5.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(5.0D);
     }  /**
      * This function is used when two same-species animals in 'love mode' breed to generate the new baby animal.
      */

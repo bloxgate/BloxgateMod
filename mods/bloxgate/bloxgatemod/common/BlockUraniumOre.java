@@ -24,6 +24,7 @@ public class BlockUraniumOre extends Block
         this.setResistance(20F);
         this.setStepSound(soundTypeStone);
         this.setHarvestLevel("pickaxe", 2);
+        setBlockName("uraniumOre");
 
     }
 }

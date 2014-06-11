@@ -11,10 +11,7 @@ import mods.bloxgate.bloxgatemod.server.BloxgatemodServerProxy;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.PostInit;
-import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -24,14 +21,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.world.biome.BiomeGenBase;
 
 /**
@@ -68,27 +62,28 @@ public class mod_bloxgatemod
     public void preInit(FMLPreInitializationEvent event)
     {
         Logger.Logger("Loading");
-        uraniumOre = (new BlockUraniumOre()).setBlockName("uraniumOre").setBlockTextureName("bloxgate:BlockUraniumOre");
-        GameRegistry.registerBlock(uraniumOre, uraniumOre.getUnlocalizedName().substring(5));
+        
     }
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        uranium = (new ItemUranium(900)).setUnlocalizedName("uranium");
-        LanguageRegistry.addName(uranium, "Uranium");
+    	uraniumOre = (new BlockUraniumOre()).setBlockName("uraniumOre").setBlockTextureName("bloxgate:BlockUraniumOre");
+        GameRegistry.registerBlock(uraniumOre, uraniumOre.getUnlocalizedName().substring(5));
+    	uranium = new ItemUranium().setUnlocalizedName("Uranium");
+        //LanguageRegistry.addName(uranium, "Uranium");
         GameRegistry.registerFuelHandler(new BloxgatemodFuelHandler());
         Logger.Logger("Loaded Fuels");
         proxy.registerRenderThings();
-        GameRegistry.addSmelting(uraniumOre.blockID, new ItemStack(uranium), 0.1F);
-        uraniumBlock = (new BlockUraniumBlock(1552, 1)).setUnlocalizedName("uraniumBlock");
+        GameRegistry.addSmelting(uraniumOre, new ItemStack(uranium), 0.1F);
+        uraniumBlock = new BlockUraniumBlock();
         LanguageRegistry.addName(uraniumBlock, "Block of Uranium");
-        MinecraftForge.setBlockHarvestLevel(uraniumBlock, "pickaxe", 2);
+       // MinecraftForge.setBlockHarvestLevel(uraniumBlock, "pickaxe", 2);
         GameRegistry.registerBlock(uraniumBlock, "Block of Uranium");
         GameRegistry.addRecipe(new ItemStack(uraniumBlock), "xxx", "xxx", "xxx", 'x', uranium);
         EnumToolMaterial toolUranium = EnumHelper.addToolMaterial("URANIUM", 3, 10000, 10F, 20, 10);
         uraniumSword = (new uraniumSword(901, toolUranium)).setUnlocalizedName("uraniumSword");
         LanguageRegistry.addName(uraniumSword, "Uranium Sword");
-        GameRegistry.addRecipe(new ItemStack(uraniumSword), " x ", " x ", " y ", 'x', uranium, 'y', Item.stick);
+        GameRegistry.addRecipe(new ItemStack(uraniumSword), " x ", " x ", " y ", 'x', uranium, 'y', Items.stick);
         EnumArmorMaterial armorUranium = EnumHelper.addArmorMaterial("URANIUM", 50, new int[] {5, 5, 5, 5}, 30);
         uraniumChestplate = new uraniumArmor(902, armorUranium, BloxgatemodClientProxy.addArmor("Uranium"), 1).setUnlocalizedName("uraniumChest");
         LanguageRegistry.addName(uraniumChestplate, "Uranium Chestplate");
@@ -99,34 +94,34 @@ public class mod_bloxgatemod
         uraniumLegs = new uraniumArmor(905, armorUranium, BloxgatemodClientProxy.addArmor("Uranium"), 2).setUnlocalizedName("uraniumLegs");
         LanguageRegistry.addName(uraniumLegs, "Uranium Leggings");
         uraniumPickaxe = (new UraniumPickaxe(906, toolUranium)).setUnlocalizedName("uraniumPickaxe");
-        LanguageRegistry.addName(uraniumPickaxe, "Uranium Pickaxe");
-        GameRegistry.addRecipe(new ItemStack(uraniumPickaxe), "xxx", " y ", " y ", 'x', uranium, 'y', Item.stick);
-        GameRegistry.registerWorldGenerator(new WorldGeneratorBlox());
+        //LanguageRegistry.addName(uraniumPickaxe, "Uranium Pickaxe");
+        GameRegistry.addRecipe(new ItemStack(uraniumPickaxe), "xxx", " y ", " y ", 'x', uranium, 'y', Items.stick);
+        GameRegistry.registerWorldGenerator(new WorldGeneratorBlox(), 0);
         NetherUraniumOre = (new BlockNetherUraniumOre(1553, 3)).setUnlocalizedName("netherUraniumOre");
         GameRegistry.registerBlock(NetherUraniumOre, "Nether Uranium Ore");
-        LanguageRegistry.addName(NetherUraniumOre, "Nether Uranium Ore");
+        //LanguageRegistry.addName(NetherUraniumOre, "Nether Uranium Ore");
         GameRegistry.addSmelting(NetherUraniumOre.blockID, new ItemStack(uraniumOre), 0F);
         uraniumHoe = (new UraniumHoe(907, toolUranium)).setUnlocalizedName("uraniumHoe");
-        LanguageRegistry.addName(uraniumHoe, "Uranium Hoe");
-        GameRegistry.addRecipe(new ItemStack(uraniumHoe), "xx ", " y ", " y ", 'x', uranium, 'y', Item.stick);
+        //LanguageRegistry.addName(uraniumHoe, "Uranium Hoe");
+        GameRegistry.addRecipe(new ItemStack(uraniumHoe), "xx ", " y ", " y ", 'x', uranium, 'y', Items.stick);
         BlockDeployer = (new BlockDeployer(1554)).setUnlocalizedName("blockDeployer");
         GameRegistry.registerBlock(BlockDeployer, "Block Deployer");;
-        LanguageRegistry.addName(BlockDeployer, "Block Deployer");
-        GameRegistry.addRecipe(new ItemStack(BlockDeployer), "xxx", "xyx", "xxx", 'x', Item.ingotIron, 'y', Item.redstone);
+        //LanguageRegistry.addName(BlockDeployer, "Block Deployer");
+        GameRegistry.addRecipe(new ItemStack(BlockDeployer), "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', Items.redstone);
         GameRegistry.registerTileEntity(TileEntityBlockDeployer.class, "BlockDeployerBlox");
         uraniumAxe = (new UraniumAxe(908, toolUranium)).setUnlocalizedName("uraniumAxe");
-        LanguageRegistry.addName(uraniumAxe, "Uranium Axe");
-        GameRegistry.addRecipe(new ItemStack(uraniumAxe), "xx ", "xy ", " y ", 'x', uranium, 'y', Item.stick);
+        //LanguageRegistry.addName(uraniumAxe, "Uranium Axe");
+        GameRegistry.addRecipe(new ItemStack(uraniumAxe), "xx ", "xy ", " y ", 'x', uranium, 'y', Items.stick);
         uraniumShovel = (new UraniumShovel(909, toolUranium)).setUnlocalizedName("uraniumShovel");
-        LanguageRegistry.addName(uraniumShovel, "Uranium Shovel");
-        GameRegistry.addRecipe(new ItemStack(uraniumShovel), " x ", " y ", " y ", 'x', uranium, 'y', Item.stick);
+        //LanguageRegistry.addName(uraniumShovel, "Uranium Shovel");
+        GameRegistry.addRecipe(new ItemStack(uraniumShovel), " x ", " y ", " y ", 'x', uranium, 'y', Items.stick);
         EnumToolMaterial toolUnobtanium = EnumHelper.addToolMaterial("UNOBTANIUM", 4, 20000, 20F, 40, 20);
         unobtanium = (new BlockUnobtanium(1555)).setUnlocalizedName("unobtaniumBlock");
         GameRegistry.registerBlock(unobtanium, "Unobtanium Block");
-        LanguageRegistry.addName(unobtanium, "Unobtanium Block");
+        //LanguageRegistry.addName(unobtanium, "Unobtanium Block");
         MinecraftForge.setBlockHarvestLevel(unobtanium, "pickaxe", 3);
         compressedUnobtaniumSphere = (new CUnobtaniumSphere(910)).setUnlocalizedName("CUnobtaniumSphere");
-        LanguageRegistry.addName(compressedUnobtaniumSphere, "Compressed Unobtanium Sphere");
+        //LanguageRegistry.addName(compressedUnobtaniumSphere, "Compressed Unobtanium Sphere");
         Logger.Logger("Loaded Items and Blocks");
         //Armor Recipes
         GameRegistry.addRecipe(new ItemStack(uraniumHelmet), "xxx", "x x", "   ", 'x', uranium);
@@ -138,7 +133,7 @@ public class mod_bloxgatemod
         EntityRegistry.registerModEntity(EntityWalkingApple.class, "WalkingApple", 2, this, 80, 3, true);
         EntityRegistry.addSpawn(EntityWalkingApple.class, 20, 5, 10, EnumCreatureType.creature, BiomeGenBase.taiga, BiomeGenBase.taigaHills, BiomeGenBase.forest, BiomeGenBase.plains);
         RenderingRegistry.registerEntityRenderingHandler(EntityWalkingApple.class, new RenderWalkingApple(new WalkingApple(), 0.5F));
-        LanguageRegistry.instance().addStringLocalization("entity.instance.WalkingApple.name", "Walking Apple");
+        //LanguageRegistry.instance().addStringLocalization("entity.instance.WalkingApple.name", "Walking Apple");
         EntityRegistry.registerGlobalEntityID(EntityEasterEgg1.class, "EasterEgg1", EntityRegistry.findGlobalUniqueEntityId(), 3515848, 12102);
         EntityRegistry.registerModEntity(EntityEasterEgg1.class, "EasterEgg1", 3, this, 32, 3, true);
         RenderingRegistry.registerEntityRenderingHandler(EntityEasterEgg1.class, new RenderEasterEgg1(new ModelEasterEgg1(), 0.5F));

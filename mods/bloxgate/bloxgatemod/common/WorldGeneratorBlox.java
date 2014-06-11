@@ -3,6 +3,7 @@ package mods.bloxgate.bloxgatemod.common;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -31,7 +32,7 @@ public class WorldGeneratorBlox implements IWorldGenerator
             int Xcoord = BlockX + random.nextInt(1);
             int Zcoord = BlockZ + random.nextInt(1);
             int Ycoord = random.nextInt(25);
-            (new WorldGenMinable(mod_bloxgatemod.uraniumOre.blockID, 2)).generate(world, random, Xcoord, Ycoord, Zcoord);
+            (new WorldGenMinable(mod_bloxgatemod.uraniumOre, 2)).generate(world, random, Xcoord, Ycoord, Zcoord);
         }
     }
 
@@ -42,7 +43,7 @@ public class WorldGeneratorBlox implements IWorldGenerator
             int Xcoord = BlockX + random.nextInt(2);
             int Zcoord = BlockZ + random.nextInt(2);
             int Ycoord = random.nextInt(50);
-            (new WorldGenMinable(mod_bloxgatemod.NetherUraniumOre.blockID, 10, Block.netherrack.blockID)).generate(world, random, Xcoord, Ycoord, Zcoord);
+            (new WorldGenMinable(mod_bloxgatemod.NetherUraniumOre, 10, Blocks.netherrack)).generate(world, random, Xcoord, Ycoord, Zcoord);
         }
     }
 }
