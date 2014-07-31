@@ -1,10 +1,9 @@
 package mods.bloxgate.bloxgatemod.common;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -24,12 +23,12 @@ public class uraniumArmor extends ItemArmor
     @SideOnly(Side.CLIENT)
     public String getArmorTexture(ItemStack itemstack, Entity entity, int slot, int layer)
     {
-        if (stack.getItem().equals(mod_bloxgatemod.uraniumChestplate) || itemstack.itemID == mod_bloxgatemod.uraniumHelmet.itemID || itemstack.itemID == mod_bloxgatemod.uraniumBoots.itemID)
+        if (itemstack.getItem().equals(mod_bloxgatemod.uraniumChestplate) || itemstack.getItem().equals(mod_bloxgatemod.uraniumHelmet) || itemstack.getItem().equals(mod_bloxgatemod.uraniumBoots))
         {
             return "bloxgate:textures/models/armor/Uranium_1.png";
         }
 
-        if (Item == mod_bloxgatemod.uraniumLegs)
+        if (itemstack.getItem().equals(mod_bloxgatemod.uraniumLegs))
         {
             return "bloxgate:textures/models/armor/Uranium_2.png";
         }

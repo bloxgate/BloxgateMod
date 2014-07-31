@@ -10,7 +10,7 @@ public class CUnobtaniumSphere extends Item
 {
     public CUnobtaniumSphere(int par1)
     {
-        super(par1);
+        super();
         // TODO Auto-generated constructor stub
     }
     @Override

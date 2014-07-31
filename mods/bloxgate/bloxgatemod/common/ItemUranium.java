@@ -24,7 +24,7 @@ class ItemUranium extends Item
         super();
         this.setCreativeTab(CreativeTabs.tabMaterials);
     }
-
+    
     @Override
     @SideOnly(Side.CLIENT)
     public EnumRarity getRarity(ItemStack par1ItemStack)
@@ -36,9 +36,5 @@ class ItemUranium extends Item
     public boolean hasEffect(ItemStack par1ItemStack)
     {
         return true;
-    }
-    @Override
-    public void registerIcons(IIconRegister par1Iconregister){
-    	itemIcon = par1Iconregister.registerIcon("bloxgate" + (this.getUnlocalizedName().substring(5)));
     }
 }

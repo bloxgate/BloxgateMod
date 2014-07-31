@@ -1,18 +1,17 @@
 package mods.bloxgate.bloxgatemod.common;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IconRegister;
 
 public class UraniumPickaxe extends ItemPickaxe
 {
-    public UraniumPickaxe(int par1, EnumToolMaterial par2EnumToolMaterial)
+    public UraniumPickaxe(ToolMaterial ToolMaterial)
     {
-        super(par1, par2EnumToolMaterial);
+        super(ToolMaterial);
         // TODO Auto-generated constructor stub
     }
     @Override
@@ -23,8 +22,8 @@ public class UraniumPickaxe extends ItemPickaxe
     }
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconRegister)
+    public void registerIcons(IIconRegister iconRegister)
     {
-        itemIcon = iconRegister.registerIcon("bloxgate:UraniumPickaxe");
+        this.itemIcon = iconRegister.registerIcon("bloxgate:UraniumPickaxe");
     }
 }

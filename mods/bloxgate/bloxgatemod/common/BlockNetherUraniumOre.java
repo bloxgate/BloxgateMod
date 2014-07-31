@@ -18,6 +18,7 @@ public class BlockNetherUraniumOre extends Block
         this.setStepSound(this.soundTypeStone);
         this.setBlockName("netherUraniumOre");
         this.setHarvestLevel("pickaxe", 2);
+        this.setBlockTextureName("bloxgate:BlockNetherUraniumOre");
     }
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister)

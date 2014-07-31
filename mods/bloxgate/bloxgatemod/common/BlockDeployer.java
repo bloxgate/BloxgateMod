@@ -1,4 +1,4 @@
-package mods.bloxgate.bloxgatemod.common;
+/*package mods.bloxgate.bloxgatemod.common;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -135,3 +135,4 @@ public class BlockDeployer extends BlockContainer
 		return new TileEntityBlockDeployer();
 	}
 }
+*/

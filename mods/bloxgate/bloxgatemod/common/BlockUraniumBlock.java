@@ -26,6 +26,7 @@ class BlockUraniumBlock extends Block
         this.setStepSound(this.soundTypeMetal);
         this.setBlockName("blockUranium");
         this.setHarvestLevel("pickaxe", 2);
+        this.setBlockTextureName("bloxgate:BlockUraniumBlock");
     }
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister)

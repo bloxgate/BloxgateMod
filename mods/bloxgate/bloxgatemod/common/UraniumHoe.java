@@ -1,8 +1,7 @@
 package mods.bloxgate.bloxgatemod.common;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
@@ -10,9 +9,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class UraniumHoe extends ItemHoe
 {
-    public UraniumHoe(int par1, EnumToolMaterial par2EnumToolMaterial)
+    public UraniumHoe(ToolMaterial ToolMaterial)
     {
-        super(par1, par2EnumToolMaterial);
+        super(ToolMaterial);
         // TODO Auto-generated constructor stub
     }
     @Override
@@ -23,8 +22,8 @@ public class UraniumHoe extends ItemHoe
     }
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconregister)
+    public void registerIcons(IIconRegister iconregister)
     {
-        itemIcon = iconregister.registerIcon("bloxgate:UraniumHoe");
+        this.itemIcon = iconregister.registerIcon("bloxgate:UraniumHoe");
     }
 }
