@@ -1,4 +1,6 @@
 tile.blockUraniumOre=Uranium Ore
 tile.blockUranium=Uranium Block
+tile.netherUraniumOre=Nether Uranium Ore
 
 item.Uranium=Uranium
+item.uraniumSword=Uranium Sword

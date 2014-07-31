@@ -15,5 +15,7 @@ public class BlockUnobtanium extends Block
         this.setHardness(180F);
         this.setResistance(360F);
         this.setStepSound(soundTypeMetal);
+        this.setHarvestLevel("pickaxe", 3);
+        this.setBlockName("unobtaniumBlock");
     }
 }

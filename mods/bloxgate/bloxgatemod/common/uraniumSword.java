@@ -7,10 +7,9 @@ package mods.bloxgate.bloxgatemod.common;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.client.renderer.texture.TextureManager;
 
 /**
@@ -19,9 +18,9 @@ import net.minecraft.client.renderer.texture.TextureManager;
  */
 class uraniumSword extends ItemSword
 {
-    public uraniumSword(int i, EnumToolMaterial toolUranium)
+    public uraniumSword(ToolMaterial toolUranium)
     {
-        super(i, toolUranium);
+        super(toolUranium);
     }
     @Override
     @SideOnly(Side.CLIENT)
@@ -31,8 +30,8 @@ class uraniumSword extends ItemSword
     }
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconRegister)
+    public void registerIcons(IIconRegister iconRegister)
     {
-        itemIcon = iconRegister.registerIcon("bloxgate:UraniumSword");
+        this.itemIcon = iconRegister.registerIcon("bloxgate:UraniumSword");
     }
 }

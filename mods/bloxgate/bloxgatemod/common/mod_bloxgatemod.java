@@ -24,8 +24,11 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraft.world.biome.BiomeGenBase;
 
 /**
@@ -80,11 +83,11 @@ public class mod_bloxgatemod
        // MinecraftForge.setBlockHarvestLevel(uraniumBlock, "pickaxe", 2);
         GameRegistry.registerBlock(uraniumBlock, "Block of Uranium");
         GameRegistry.addRecipe(new ItemStack(uraniumBlock), "xxx", "xxx", "xxx", 'x', uranium);
-        EnumToolMaterial toolUranium = EnumHelper.addToolMaterial("URANIUM", 3, 10000, 10F, 20, 10);
-        uraniumSword = (new uraniumSword(901, toolUranium)).setUnlocalizedName("uraniumSword");
+        ToolMaterial toolUranium = EnumHelper.addToolMaterial("URANIUM", 3, 10000, 10F, 20, 10);
+        uraniumSword = (new uraniumSword(toolUranium)).setUnlocalizedName("uraniumSword");
         LanguageRegistry.addName(uraniumSword, "Uranium Sword");
         GameRegistry.addRecipe(new ItemStack(uraniumSword), " x ", " x ", " y ", 'x', uranium, 'y', Items.stick);
-        EnumArmorMaterial armorUranium = EnumHelper.addArmorMaterial("URANIUM", 50, new int[] {5, 5, 5, 5}, 30);
+        ArmorMaterial armorUranium = EnumHelper.addArmorMaterial("URANIUM", 50, new int[] {5, 5, 5, 5}, 30);
         uraniumChestplate = new uraniumArmor(902, armorUranium, BloxgatemodClientProxy.addArmor("Uranium"), 1).setUnlocalizedName("uraniumChest");
         LanguageRegistry.addName(uraniumChestplate, "Uranium Chestplate");
         uraniumHelmet =  new uraniumArmor(903, armorUranium, BloxgatemodClientProxy.addArmor("Uranium"), 0).setUnlocalizedName("uraniumHelmet");
@@ -97,14 +100,14 @@ public class mod_bloxgatemod
         //LanguageRegistry.addName(uraniumPickaxe, "Uranium Pickaxe");
         GameRegistry.addRecipe(new ItemStack(uraniumPickaxe), "xxx", " y ", " y ", 'x', uranium, 'y', Items.stick);
         GameRegistry.registerWorldGenerator(new WorldGeneratorBlox(), 0);
-        NetherUraniumOre = (new BlockNetherUraniumOre(1553, 3)).setUnlocalizedName("netherUraniumOre");
+        NetherUraniumOre = new BlockNetherUraniumOre();
         GameRegistry.registerBlock(NetherUraniumOre, "Nether Uranium Ore");
         //LanguageRegistry.addName(NetherUraniumOre, "Nether Uranium Ore");
-        GameRegistry.addSmelting(NetherUraniumOre.blockID, new ItemStack(uraniumOre), 0F);
+        GameRegistry.addSmelting(NetherUraniumOre, new ItemStack(uraniumOre), 0F);
         uraniumHoe = (new UraniumHoe(907, toolUranium)).setUnlocalizedName("uraniumHoe");
         //LanguageRegistry.addName(uraniumHoe, "Uranium Hoe");
         GameRegistry.addRecipe(new ItemStack(uraniumHoe), "xx ", " y ", " y ", 'x', uranium, 'y', Items.stick);
-        BlockDeployer = (new BlockDeployer(1554)).setUnlocalizedName("blockDeployer");
+        BlockDeployer = (new BlockDeployer()).setBlockName("blockDeployer");
         GameRegistry.registerBlock(BlockDeployer, "Block Deployer");;
         //LanguageRegistry.addName(BlockDeployer, "Block Deployer");
         GameRegistry.addRecipe(new ItemStack(BlockDeployer), "xxx", "xyx", "xxx", 'x', Items.iron_ingot, 'y', Items.redstone);
@@ -116,10 +119,9 @@ public class mod_bloxgatemod
         //LanguageRegistry.addName(uraniumShovel, "Uranium Shovel");
         GameRegistry.addRecipe(new ItemStack(uraniumShovel), " x ", " y ", " y ", 'x', uranium, 'y', Items.stick);
         EnumToolMaterial toolUnobtanium = EnumHelper.addToolMaterial("UNOBTANIUM", 4, 20000, 20F, 40, 20);
-        unobtanium = (new BlockUnobtanium(1555)).setUnlocalizedName("unobtaniumBlock");
+        unobtanium = new BlockUnobtanium();
         GameRegistry.registerBlock(unobtanium, "Unobtanium Block");
         //LanguageRegistry.addName(unobtanium, "Unobtanium Block");
-        MinecraftForge.setBlockHarvestLevel(unobtanium, "pickaxe", 3);
         compressedUnobtaniumSphere = (new CUnobtaniumSphere(910)).setUnlocalizedName("CUnobtaniumSphere");
         //LanguageRegistry.addName(compressedUnobtaniumSphere, "Compressed Unobtanium Sphere");
         Logger.Logger("Loaded Items and Blocks");
