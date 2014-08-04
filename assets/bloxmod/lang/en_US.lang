@@ -1,0 +1,11 @@
+tile.uraniumOre.name=Uranium Ore
+tile.blockUranium.name=Uranium Block
+tile.netherUraniumOre.name=Nether Uranium Ore
+
+item.uraniumIngot.name=Uranium
+item.uraniumSword.name=Uranium Sword
+item.uraniumAxe.name=Uranium Axe
+item.uraniumHoe.name=Uranium Hoe
+item.uraniumPickAxe.name=Uranium Pickaxe
+
+entity.EasterEgg1=Easter Egg
