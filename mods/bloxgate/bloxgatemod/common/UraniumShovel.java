@@ -9,9 +9,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class UraniumShovel extends ItemSpade
 {
-    public UraniumShovel(int par1, ToolMaterial par2EnumToolMaterial)
+    public UraniumShovel(ToolMaterial ToolMaterial)
     {
-        super(par2EnumToolMaterial);
+        super(ToolMaterial);
         // TODO Auto-generated constructor stub
     }
     @Override
