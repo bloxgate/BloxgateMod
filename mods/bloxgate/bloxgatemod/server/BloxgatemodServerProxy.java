@@ -11,9 +11,10 @@ import net.minecraftforge.client.MinecraftForgeClient;
  *
  * @author Gregory
  */
-public class BloxgatemodServerProxy extends BloxgatemodCommonProxy{
-     @Override
-    public void registerRenderThings(){
-}
-
+public class BloxgatemodServerProxy extends BloxgatemodCommonProxy
+{
+    @Override
+    public void registerRenderThings()
+    {
+    }
 }

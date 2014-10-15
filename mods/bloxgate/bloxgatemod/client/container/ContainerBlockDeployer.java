@@ -5,15 +5,18 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 
-public class ContainerBlockDeployer extends Container{
-private TileEntityBlockDeployer deployer;
+public class ContainerBlockDeployer extends Container
+{
+    private TileEntityBlockDeployer deployer;
 
-public ContainerBlockDeployer(InventoryPlayer invPlayer, TileEntityBlockDeployer entity) {
-this.deployer=entity;
-}
+    public ContainerBlockDeployer(InventoryPlayer invPlayer, TileEntityBlockDeployer entity)
+    {
+        this.deployer = entity;
+    }
 
-@Override
-public boolean canInteractWith(EntityPlayer entityplayer) {
-return deployer.isUseableByPlayer(entityplayer);
-}
+    @Override
+    public boolean canInteractWith(EntityPlayer entityplayer)
+    {
+        return deployer.isUseableByPlayer(entityplayer);
+    }
 }

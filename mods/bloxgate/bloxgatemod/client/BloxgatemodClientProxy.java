@@ -18,16 +18,19 @@ import cpw.mods.fml.relauncher.SideOnly;
  *
  * @author Gregory
  */
-public class BloxgatemodClientProxy extends BloxgatemodCommonProxy{
+public class BloxgatemodClientProxy extends BloxgatemodCommonProxy
+{
     @Override
-    public void registerRenderThings(){
-
+    public void registerRenderThings()
+    {
     }
     @SideOnly(Side.CLIENT)
-    public static int addArmor(String armor){
-    	return RenderingRegistry.addNewArmourRendererPrefix(armor);
+    public static int addArmor(String armor)
+    {
+        return RenderingRegistry.addNewArmourRendererPrefix(armor);
     }
-    public void registerRenderInformation(){
-    	 EntityRegistry.registerGlobalEntityID(EntityWalkingApple.class, "WalkingApple", EntityRegistry.findGlobalUniqueEntityId(), 3515848, 12102);
+    public void registerRenderInformation()
+    {
+        EntityRegistry.registerGlobalEntityID(EntityWalkingApple.class, "WalkingApple", EntityRegistry.findGlobalUniqueEntityId(), 3515848, 12102);
     }
 }

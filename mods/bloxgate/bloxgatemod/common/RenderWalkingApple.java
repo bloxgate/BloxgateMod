@@ -10,23 +10,23 @@ import net.minecraft.util.ResourceLocation;
 @SideOnly(Side.CLIENT)
 public class RenderWalkingApple extends RenderLiving
 {
-    public RenderWalkingApple(ModelBase par1ModelBase, float par2) {
-		super(par1ModelBase, par2);
-		// TODO Auto-generated constructor stub
-	}
+    public RenderWalkingApple(ModelBase par1ModelBase, float par2)
+    {
+        super(par1ModelBase, par2);
+        // TODO Auto-generated constructor stub
+    }
 
-	private static final ResourceLocation WalkingAppleTextures = new ResourceLocation("bloxgate", "textures/entities/ApplePig.png");
+    private static final ResourceLocation WalkingAppleTextures = new ResourceLocation("bloxgate", "textures/entities/ApplePig.png");
 
-    
     protected ResourceLocation getWalkingAppleTextures(EntityWalkingApple par1EntityWalkingAppple)
     {
         return WalkingAppleTextures;
     }
 
-
-	@Override
-	protected ResourceLocation getEntityTexture(Entity entity) {
-		// TODO Auto-generated method stub
-		return this.getWalkingAppleTextures((EntityWalkingApple)entity);
-	}
+    @Override
+    protected ResourceLocation getEntityTexture(Entity entity)
+    {
+        // TODO Auto-generated method stub
+        return this.getWalkingAppleTextures((EntityWalkingApple)entity);
+    }
 }

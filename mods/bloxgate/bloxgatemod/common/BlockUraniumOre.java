@@ -6,7 +6,6 @@ package mods.bloxgate.bloxgatemod.common;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -15,20 +14,17 @@ import cpw.mods.fml.relauncher.SideOnly;
  *
  * @author Gregory
  */
-public class BlockUraniumOre extends Block{
-
-    public BlockUraniumOre(int par1, int par2) {
-        super(par1, Material.rock);
+public class BlockUraniumOre extends Block
+{
+    public BlockUraniumOre()
+    {
+        super(Material.rock);
         this.setCreativeTab(CreativeTabs.tabBlock);
         this.setHardness(10F);
         this.setResistance(20F);
-        this.setStepSound(this.soundStoneFootstep);
-        
+        this.setStepSound(soundTypeStone);
+        this.setHarvestLevel("pickaxe", 2);
+        this.setBlockName("uraniumOre");
+
     }
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconRegister){
-		this.blockIcon = iconRegister.registerIcon("bloxgate:BlockUraniumOre");
-	}
-    
 }

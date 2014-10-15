@@ -5,22 +5,25 @@
 package mods.bloxgate.bloxgatemod.common;
 
 import cpw.mods.fml.common.IFuelHandler;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 /**
  *
  * @author Gregory
  */
-public class BloxgatemodFuelHandler implements IFuelHandler{
+public class BloxgatemodFuelHandler implements IFuelHandler
+{
     @Override
-    public int getBurnTime(ItemStack fuel){
-        int var1 = fuel.itemID;
-        if (var1 == mod_bloxgatemod.uranium.itemID){
+    public int getBurnTime(ItemStack fuel)
+    {
+        if (fuel.getItem() == mod_bloxgatemod.uranium)
+        {
             return 24000;
-        } 
-        else{
+        }
+        else
+        {
             return 0;
         }
     }
-    
 }

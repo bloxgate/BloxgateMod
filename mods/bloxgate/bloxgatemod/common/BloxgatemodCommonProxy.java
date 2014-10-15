@@ -8,9 +8,11 @@ package mods.bloxgate.bloxgatemod.common;
  *
  * @author Gregory
  */
-public class BloxgatemodCommonProxy {
-    public void registerRenderThings(){}
-public static int addArmor(String armor){
-	return 0;
-}
+public class BloxgatemodCommonProxy
+{
+    public void registerRenderThings() {}
+    public static int addArmor(String armor)
+    {
+        return 0;
+    }
 }
