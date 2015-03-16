@@ -1,5 +1,5 @@
 BloxgateMod
 ===========
 
-My new minecraft mod. Adds new ores, armor, and tools. Requires Minecraft Forge.
+A mod I'm using to learn about modding.
 
